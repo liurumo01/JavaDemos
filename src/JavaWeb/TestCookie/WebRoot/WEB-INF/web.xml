@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+  <servlet>
+    <servlet-name>UserController</servlet-name>
+    <servlet-class>space.snowwolf.controller.UserController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ProcessStep1Controller</servlet-name>
+    <servlet-class>space.snowwolf.controller.ProcessStep1Controller</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ProcessStep2Controller</servlet-name>
+    <servlet-class>space.snowwolf.controller.ProcessStep2Controller</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TokenController</servlet-name>
+    <servlet-class>space.snowwolf.controller.TokenController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ValidateColorController</servlet-name>
+    <servlet-class>space.snowwolf.controller.ValidateColorController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CheckCodeController</servlet-name>
+    <servlet-class>space.snowwolf.controller.CheckCodeController</servlet-class>
+  </servlet>
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>UserController</servlet-name>
+    <url-pattern>/UserController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProcessStep1Controller</servlet-name>
+    <url-pattern>/ProcessStep1Controller</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProcessStep2Controller</servlet-name>
+    <url-pattern>/ProcessStep2Controller</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TokenController</servlet-name>
+    <url-pattern>/TokenController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ValidateColorController</servlet-name>
+    <url-pattern>/ValidateColorController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckCodeController</servlet-name>
+    <url-pattern>/CheckCodeController</url-pattern>
+  </servlet-mapping>
+
+</web-app>

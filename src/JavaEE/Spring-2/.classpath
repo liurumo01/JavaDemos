@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/spring-aop-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-aspects-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-beans-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-4.0.0.RELEASE.jar" sourcepath="C:/Users/如墨/.m2/repository/org/springframework/spring-context/4.0.0.RELEASE/spring-context-4.0.0.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="lib/spring-core-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-expression-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/aspectjrt.jar" sourcepath="C:/Users/如墨/.m2/repository/org/aspectj/aspectjrt/1.8.8/aspectjrt-1.8.8-sources.jar"/>
+	<classpathentry kind="lib" path="lib/aspectjtools.jar"/>
+	<classpathentry kind="lib" path="lib/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="lib/org.aspectj.matcher.jar"/>
+	<classpathentry kind="lib" path="lib/aopalliance.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

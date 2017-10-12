@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="helloBean" class="javamxj.spring.beginning3.HelloBean">
+		<property name="helloWorld">
+			<value>Hello,javamxj!</value>
+		</property>
+	</bean>
+</beans>

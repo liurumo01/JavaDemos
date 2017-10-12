@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+		<title>ex3.html</title>
+		<meta name="content-type" content="text/html; charset=GBK"/>
+    	<script src="scripts/jquery-1.7.2.min.js"></script>
+		<script>
+			$(function() {
+				$("#selectAll").click(function() {
+					$(":checkbox[name='sports1']").attr("checked",this.checked);
+				});
+				
+				$(":checkbox[name='sports1']").click(function() {
+					$("#selectAll").attr("checked",
+						$(":checkbox[name='sports1']").length == $(":checkbox[name='sports1']:checked").length);
+				});
+			});
+		</script>
+		
+		<style>
+			* {
+				font-size: 30px;
+				text-align: center;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0px;
+				margin: auto;
+			}
+			th,td {
+				border: 2px solid black;
+				padding: 10px;	
+			}
+			a {
+				color: blue;
+				cursor: pointer;
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+  
+	<body>
+		<div>
+			你爱好的运动是？
+			<input id="selectAll" type="checkbox"/>全选/全不选
+			<br/>
+			<input type="checkbox" name="sports1" value="足球"/>足球
+			<input type="checkbox" name="sports1" value="篮球"/>篮球
+			<input type="checkbox" name="sports1" value="羽毛球"/>羽毛球
+			<input type="checkbox" name="sports1" value="乒乓球"/>乒乓球
+		</div>
+	</body>
+</html>

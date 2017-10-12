@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="helloWorld" class="space.snowwolf.spring.beans.HelloWorld">
+		<property name="name" value="Spring"></property>
+	</bean>
+
+	<bean id="car1" class="space.snowwolf.spring.beans.Car">
+		<constructor-arg value="Audi" index="0"></constructor-arg>
+		<constructor-arg value="Shanghai" index="1"></constructor-arg>
+		<constructor-arg value="300000" index="2"></constructor-arg>
+	</bean>
+
+	<bean id="car2" class="space.snowwolf.spring.beans.Car">
+		<constructor-arg value="BMW" type="java.lang.String"></constructor-arg>
+		<constructor-arg type="java.lang.String">
+			<value><![CDATA[<Shanghai>]]></value>
+		</constructor-arg>
+		<constructor-arg value="240" type="int"></constructor-arg>
+	</bean>
+
+	<bean id="person1" class="space.snowwolf.spring.beans.Person">
+		<property name="name" value="Tom"></property>
+		<property name="age" value="24"></property>
+		<property name="car" ref="car1"></property>
+	</bean>
+
+	<bean id="person2" class="space.snowwolf.spring.beans.Person">
+		<property name="name" value="Tom"></property>
+		<property name="age" value="24"></property>
+		<property name="car">
+			<ref bean="car2" />
+		</property>
+	</bean>
+
+	<bean id="person3" class="space.snowwolf.spring.beans.Person">
+		<property name="name" value="Tom"></property>
+		<property name="age" value="24"></property>
+		<property name="car">
+			<bean class="space.snowwolf.spring.beans.Car">
+				<constructor-arg value="BMW" type="java.lang.String"></constructor-arg>
+				<constructor-arg type="java.lang.String">
+					<value><![CDATA[<Shanghai>]]></value>
+				</constructor-arg>
+				<constructor-arg value="240" type="int"></constructor-arg>
+			</bean>
+		</property>
+		<property name="car.price" value="300000"></property>
+	</bean>
+
+	<bean id="person4" class="space.snowwolf.spring.beans.collection.Person">
+		<property name="name" value="Mike"></property>
+		<property name="age" value="27"></property>
+		<property name="cars">
+			<list>
+				<ref bean="car1" />
+				<ref bean="car2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="person5" class="space.snowwolf.spring.beans.collection.Person2">
+		<property name="name" value="Rose"></property>
+		<property name="age" value="28"></property>
+		<property name="cars">
+			<map>
+				<entry key="AA" value-ref="car1"></entry>
+				<entry key="BB" value-ref="car2"></entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="space.snowwolf.spring.beans.collection.DataSource">
+		<property name="properties">
+			<props>
+				<prop key="user">root</prop>
+				<prop key="password">123456</prop>
+				<prop key="jdbcUrl">jdbc:mysql:///test</prop>
+				<prop key="driverClass">com.mysql.jdbc.Driver</prop>
+			</props>
+		</property>
+	</bean>
+
+	<util:list id="cars">
+		<ref bean="car1"></ref>
+		<ref bean="car2"></ref>
+	</util:list>
+
+	<bean id="person6" class="space.snowwolf.spring.beans.collection.Person">
+		<property name="name" value="Jack"></property>
+		<property name="age" value="29"></property>
+		<property name="cars" ref="cars"></property>
+	</bean>
+
+	<bean id="person7" class="space.snowwolf.spring.beans.collection.Person" p:age="30" p:name="Queen" p:cars-ref="cars"></bean>
+
+</beans>

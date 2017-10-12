@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+		<title>ex2.html</title>
+		<meta name="content-type" content="text/html; charset=GBK"/>
+    
+		<script>
+			window.onload = function() {
+				document.getElementById("province").onchange = function() {
+					document.getElementById("city").innerHTML = "<option value=\"\">请选择</option>";
+					var xmlDoc = loadXML("cities.xml");
+					var provinces = xmlDoc.getElementsByTagName("province");
+					var provinceVal = this.value;
+					var cities;
+					for(var i=0;i<provinces.length;i++) {
+						if(provinces[i].getAttribute("name") == provinceVal) {
+							cities = provinces[i].getElementsByTagName("city");
+							break;
+						}
+					}
+					for(var i=0;i<cities.length;i++) {
+						var cityOptionNode = document.createElement("option");
+						cityOptionNode.appendChild(document.createTextNode(cities[i].firstChild.nodeValue));
+						document.getElementById("city").appendChild(cityOptionNode);
+					}
+				}
+			}
+			
+			function loadXML(xmlFile) {
+				var xmlDoc;
+				if (window.ActiveXObject) {
+					xmlDoc = new ActiveXObject('Microsoft.XMLDOM');//IE浏览器
+					xmlDoc.async = false;
+					xmlDoc.load(xmlFile);
+				} else if (isFirefox=navigator.userAgent.indexOf("Firefox")>0) { //火狐浏览器
+					//else if (document.implementation && document.implementation.createDocument) {//这里主要是对谷歌浏览器进行处理
+					xmlDoc = document.implementation.createDocument('', '', null);
+					xmlDoc.load(xmlFile);
+					
+				} else{ //谷歌浏览器
+					var xmlhttp = new window.XMLHttpRequest();
+					xmlhttp.open("GET",xmlFile,false);
+					xmlhttp.send(null);
+					if(xmlhttp.readyState == 4){
+						xmlDoc = xmlhttp.responseXML.documentElement;
+					} 
+				}
+				return xmlDoc;
+			}
+		</script>
+		
+		<style>
+			* {
+				font-size: 30px;
+				text-align: center;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0px;
+				margin: auto;
+			}
+			th,td {
+				border: 2px solid black;
+				padding: 10px;	
+			}
+			a {
+				color: blue;
+				cursor: pointer;
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+  
+	<body>
+		<select id="province">
+			<option value="">请选择</option>
+			<option value="河北省">河北省</option>
+			<option value="辽宁省">辽宁省</option>
+			<option value="山东省">山东省</option>
+		</select>
+		<select id="city">
+			<option value="">请选择</option>
+		</select>
+	</body>
+</html>

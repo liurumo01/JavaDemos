@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+	<constant name="struts.ui.theme" value="xhtml"></constant>
+
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<!-- <interceptors>
+		    <interceptor-stack name="appStack">
+		        <interceptor-ref name="paramsPrepareParamsStack">
+		            <param name="prepare.alwaysInvokePrepare">false</param>
+		        </interceptor-ref>
+		    </interceptor-stack>
+		</interceptors>
+	
+		<default-interceptor-ref name="appStack"></default-interceptor-ref>
+		
+		<action name="ex-emp-*" class="space.snowwolf.struts2.ex.Employee" method="{1}">
+			<result name="{1}">/ex/emp-{1}.jsp</result>
+		</action>
+	
+		<action name="app-emp-*" class="space.snowwolf.struts2.app.EmployeeAction" method="{1}">
+			<result name="{1}">/app/emp-{1}.jsp</result>
+			<result name="success" type="redirectAction">app-emp-list</result>
+		</action> -->
+		
+		<action name="app2-testConversion" class="space.snowwolf.struts2.app2.ConversionAction">
+			<result name="input">/app2/index.jsp</result>
+			<result>/app2/success.jsp</result>
+		</action>
+		
+    </package>
+
+</struts>

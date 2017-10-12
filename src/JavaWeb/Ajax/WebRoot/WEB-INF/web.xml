@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+  <servlet>
+    <servlet-name>ValidateUsername</servlet-name>
+    <servlet-class>space.snowwolf.ajax.servlet.ValidateUsername</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <servlet-class>space.snowwolf.ajax.servlet.AddToCartServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>EmployeeServlet</servlet-name>
+    <servlet-class>space.snowwolf.ajax.servlet.EmployeeServlet</servlet-class>
+  </servlet>
+
+
+
+  <servlet-mapping>
+    <servlet-name>ValidateUsername</servlet-name>
+    <url-pattern>/ValidateUsername</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <url-pattern>/AddToCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EmployeeServlet</servlet-name>
+    <url-pattern>/EmployeeServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>

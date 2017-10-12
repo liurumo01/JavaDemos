@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="beanFile" class="javamxj.spring.beanfile.BeanFile">
+		<property name="beanFile">
+			<value>ApplicationContext</value>
+		</property>
+	</bean>
+</beans>

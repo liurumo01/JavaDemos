@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://123.57.218.103/hibernate_1</property>
+		<property name="hibernate.connection.username">snowwolf</property>
+		<property name="hibernate.connection.password">snowwolf</property>
+
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<property name="hibernate.use_identifier_rollback">true</property>
+		
+		<!-- 
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">10</property>
+		<property name="hibernate.c3p0.acquire_increment">2</property>
+		<property name="hibernate.c3p0.timeout">2000</property>
+		<property name="hibernate.c3p0.idle_test_period">2000</property>
+		<property name="hibernate.c3p0.max_statements">10</property>
+		 -->
+		
+		<property name="hibernate.jdbc.fetch_size">100</property>
+		<property name="hibernate.jdbc.batch_size">30</property>
+		
+		<property name="current_session_context_class">thread</property>
+		
+		<mapping resource="space/snowwolf/hibernate/entities/Department.hbm.xml"/>
+		<mapping resource="space/snowwolf/hibernate/entities/Employee.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

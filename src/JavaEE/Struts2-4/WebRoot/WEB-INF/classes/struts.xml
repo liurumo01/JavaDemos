@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<global-results>
+			<result name="input">/input.jsp</result>
+		</global-results>
+	
+		<global-exception-mappings>
+			<exception-mapping result="input" exception="java.lang.ArithmeticException"></exception-mapping>
+		</global-exception-mappings>
+		
+		<action name="product-save" class="space.snowwolf.struts2.valuestack.Product" method="save">
+			<result>/details.jsp</result>
+		</action>
+		
+		<action name="testTag" class="space.snowwolf.struts2.valuestack.Product" method="testTag">
+			<result>/common-tag-1.jsp</result>
+		</action>
+		
+		<action name="testTag2" class="space.snowwolf.struts2.valuestack.Person">
+			<result>/common-tag-2.jsp</result>
+		</action>
+		
+		<action name="save" class="space.snowwolf.struts2.valuestack.UserAction" method="save">
+			<result name="input">/form-tag.jsp</result>
+		</action>
+	
+    </package>
+
+</struts>

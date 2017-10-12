@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>testjson.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+	<script>
+		/* var jsonObj = {
+			"name" : "atguigu",
+			"age" : 12,
+			"address" : {
+				"city" : "Beijing",
+				"school" : "Space"
+			},
+			"teaching" : function() {
+				alert("Java EE, Android...");
+			}
+		};
+		alert(jsonObj.name);
+		alert(jsonObj.address.city);
+		jsonObj.teaching(); */
+		
+		var jsonStr = "{'name':'atguigu'}";
+		
+		var jsonObj2 = eval("(" + jsonStr + ")");
+		alert(jsonObj2.name);
+
+		var jsonObj3 = JSON.parse(jsonStr);
+		alert(jsonObj3.name);
+	</script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+  </body>
+</html>

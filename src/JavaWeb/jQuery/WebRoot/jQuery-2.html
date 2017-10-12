@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+		<title>ex3.html</title>
+		<meta name="content-type" content="text/html; charset=GBK"/>
+    	<script src="scripts/jquery-1.7.2.min.js"></script>
+		<script>
+			$(function() {
+				$("button").click(function() {
+					//alert("hello world");
+					
+					var $btn = $("button");
+					//alert($btn.length);
+					
+					//alert($btn[0].firstChild.nodeValue);
+					
+					var btn = document.getElementById('btn');
+					alert($(btn).text());
+					$(btn).text("Click Me 3");
+				});
+			});
+		</script>
+		
+		<style>
+			* {
+				font-size: 30px;
+				text-align: center;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0px;
+				margin: auto;
+			}
+			th,td {
+				border: 2px solid black;
+				padding: 10px;	
+			}
+			a {
+				color: blue;
+				cursor: pointer;
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+  
+	<body>
+		<button>Click Me</button>
+		<button id="btn">Click Me 2</button>
+	</body>
+</html>

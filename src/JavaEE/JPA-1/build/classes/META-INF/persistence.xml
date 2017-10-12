@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	
+	<persistence-unit name="JPA-1" transaction-type="RESOURCE_LOCAL">
+	
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<class>space.snowwolf.jpa.helloworld.Customer</class>
+		<class>space.snowwolf.jpa.helloworld.Order</class>
+		
+		<class>space.snowwolf.jpa.helloworld.Manager</class>
+		<class>space.snowwolf.jpa.helloworld.Department</class>
+		
+		<class>space.snowwolf.jpa.helloworld.Item</class>
+		<class>space.snowwolf.jpa.helloworld.Category</class>
+		
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+		
+		<properties>
+		
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://123.57.218.103:3306/test3"/>
+			<property name="javax.persistence.jdbc.user" value="test"/>
+			<property name="javax.persistence.jdbc.password" value="test"/>
+			
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			
+			<property name="hibernate.cache.use_second_level_cache" value="true"/>
+			<property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
+			<property name="hibernate.cache.use_query_cache" value="true"/>
+			
+		</properties>
+		
+	</persistence-unit>
+
+</persistence>

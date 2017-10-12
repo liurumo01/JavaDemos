@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Untitled Document</title>
+		<script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+		
+			$(function(){
+				$(":text").focus(function() {
+					var val = $(this).val();
+					if(val == this.defaultValue) {
+						$(this).val("");
+					}
+				}).blur(function() {
+					var val = this.value;
+					if($.trim(val) == "") {
+						this.value = this.defaultValue;
+					}
+				})
+				
+				$(":button:eq(1)").click(function() {
+					$("#single").val("选择3号");
+				});
+				
+				$(":button:eq(2)").click(function() {
+					$("#multiple").val(["选择2号","选择4号"]);
+				});
+				
+				$(":button:eq(3)").click(function() {
+					$(":checkbox[name='c']").val(["check2","check4"]);
+				});
+				
+				$(":button:eq(4)").click(function() {
+					$(":radio[name='r']").val(["radio2"]);
+				});
+				
+				$(":button:eq(5)").click(function() {
+					alert($("#single").val());
+					alert($("#multiple").val());
+					
+					$(":checkbox[name='c']:checked").each(function() {
+						alert($(this).val());
+					});
+					
+					alert($(":radio[name='r']:checked").val());
+				});
+			})
+		
+		</script>
+	</head>
+	<body>
+		<input type="text" id="address" value="请输入邮箱地址"><br>
+		<input type="text" id="password" value="请输入邮箱密码"><br>
+		<input type="button" value="登录">
+		
+		<br><br><br>
+		
+		<input type="button" value="使单选下拉框的'选择3号'被选中"/>
+		<input type="button" value="使多选下拉框选中的'选择2号'和'选择4号'被选中"/><br>
+		<input type="button" value="使多选框的'多选2'和'多选4'被选中"/>
+		<input type="button" value="使单选框的'单选2'被选中"/><br>
+		<input type="button" value="打印已经被选中的值"><br>
+ 
+		<br/>
+		
+		<select id="single">
+		  <option>选择1号</option>
+		  <option>选择2号</option>
+		  <option>选择3号</option>
+		</select>
+		
+		<select id="multiple" multiple="multiple" style="height:120px;">
+		  <option selected="selected">选择1号</option>
+		  <option>选择2号</option>
+		  <option>选择3号</option>
+		  <option>选择4号</option>
+		  <option selected="selected">选择5号</option>
+		</select>
+		
+		<br/><br/>
+
+		<input type="checkbox" name="c" value="check1"/> 多选1
+		<input type="checkbox" name="c" value="check2"/> 多选2
+		<input type="checkbox" name="c" value="check3"/> 多选3
+		<input type="checkbox" name="c" value="check4"/> 多选4
+		
+		<br/>
+		
+		<input type="radio" name="r" value="radio1"/> 单选1
+		<input type="radio" name="r"  value="radio2"/> 单选2
+		<input type="radio" name="r"  value="radio3"/> 单选3
+
+	</body>
+</html>

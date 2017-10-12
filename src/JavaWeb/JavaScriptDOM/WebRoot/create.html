@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>helloworld.html</title>
+	
+		<meta name="keywords" content="keyword1,keyword2,keyword3">
+		<meta name="description" content="this is my page">
+		<meta name="content-type" content="text/html; charset=GBK">
+    
+		<script type="text/javascript">
+			window.onload = function() {
+				var liNodes = document.getElementsByTagName("li");
+				for(var i=0;i<liNodes.length;i++) {
+					liNodes[i].onclick = show;
+				}
+			
+				var btn = document.getElementById("submit");
+				btn.onclick = function() {
+					var types = document.getElementsByName("type");
+					var type = types[0].checked ? types[0].value : (types[1].checked ? types[1].value : null);
+					if(type == null) {
+						alert("请选择一个类型！");
+						return;
+					}
+					var name = document.getElementById("name");
+					if(name.value.trim() == "") {
+						alert("请输入名称！");
+						return;
+					}
+					var text = name.value.trim();
+					name.value = name.value.trim();;
+					var textNode = document.createTextNode(text);
+					var liNode = document.createElement("li");
+					liNode.appendChild(textNode);
+					liNode.onclick = show;
+					document.getElementById(type).appendChild(liNode);
+				}
+			}
+			
+			function show() {
+				alert(this.firstChild.nodeValue);
+			}
+		</script>
+
+	</head>
+  
+	<body>
+		<p>你喜欢哪个城市？</p>
+		<ul id="city">
+			<li id="bj">北京</li>
+			<li>上海</li>
+			<li>东京</li>
+			<li>首尔</li>
+		</ul>
+		
+		<br/><br/>
+		
+		<p>你喜欢哪款单机游戏？</p>
+		<ul id="game">
+			<li>红警</li>
+			<li>实况</li>
+			<li>极品飞车</li>
+			<li>魔兽</li>
+		</ul>
+		
+		<br/><br/>
+		
+		<input type="radio" name="type" value="city"/>城市
+		<input type="radio" name="type" value="game"/>游戏
+		name:
+		<input type="text" name="name" id="name"/>
+		<input type="submit" value="submit" id="submit"/>
+	</body>
+</html>

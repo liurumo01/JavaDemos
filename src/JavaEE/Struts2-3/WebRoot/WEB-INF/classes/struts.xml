@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<action name="TestResult" class="space.snowwolf.struts2.action.TestResultAction">
+			<result name="success" type="dispatcher">/success.jsp</result>
+			
+			<result name="login" type="redirect">/login.jsp</result>
+			
+			<result name="index" type="redirectAction">
+				<param name="actionName">TestAction</param>
+			</result>
+			<!-- <result name="index" type="redirect">/TestAction</result> -->
+			
+			<result name="test" type="chain">
+				<param name="actionName">TestAction</param>
+			</result>
+			<!-- <result name="test" type="dispatcher">/TestAction</result> -->
+			
+		</action>
+		
+		<action name="*-update" class="space.snowwolf.struts2.action.UserAction" method="update">
+			<result name="update-success">/success.jsp</result>
+		</action>
+		
+		<action name="UserAction-*" class="space.snowwolf.struts2.action.UserAction" method="{1}">
+			<result name="{1}-success">/success.jsp</result>
+		</action>
+		
+		
+		
+		<!--
+			<action name="UserAction-add" class="space.snowwolf.struts2.action.UserAction" method="add">
+				<result name="add-success">/success.jsp</result>
+			</action>
+			<action name="UserAction-delete" class="space.snowwolf.struts2.action.UserAction" method="delete">
+				<result name="delete-success">/success.jsp</result>
+			</action>
+			<action name="UserAction-update" class="space.snowwolf.struts2.action.UserAction" method="update">
+				<result name="update-success">/success.jsp</result>
+			</action>
+			<action name="UserAction-query" class="space.snowwolf.struts2.action.UserAction" method="query">
+				<result name="query-success">/success.jsp</result>
+			</action>
+		-->
+	
+    </package>
+    
+    <package name="testPackage" namespace="/" extends="struts-default">
+    
+    	<action name="TestAction" class="space.snowwolf.struts2.action.TestAction">
+    		<result>/success.jsp</result>
+    	</action>
+    	
+    </package>
+
+</struts>

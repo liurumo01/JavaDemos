@@ -1,0 +1,103 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+		<title>ex3.html</title>
+		<meta name="content-type" content="text/html; charset=GBK"/>
+    
+		<script>
+			window.onload = function() {
+				var count = 0;
+				var selectAllCheckbox = document.getElementById("selectAll");
+				var optionNodes = document.getElementsByName("sports1");
+				
+				selectAllCheckbox.onchange = function() {
+					count = this.checked ? optionNodes.length : 0;
+					for(var i=0;i<optionNodes.length;i++) {
+						optionNodes[i].checked = this.checked;
+					}
+				}
+				
+				for(var i=0;i<optionNodes.length;i++) {
+					optionNodes[i].onchange = function() {
+						if(this.checked) {
+							count++;
+						} else {
+							count--;
+						}
+						if(this.checked == false) {
+							selectAllCheckbox.checked = false;
+						} else if(count == optionNodes.length) {
+							selectAllCheckbox.checked = true;
+						}
+					}
+				}
+
+				document.getElementById("_selectAll").onclick = function() {
+					var optionNodes = document.getElementsByName("sports2");
+					for(var i=0;i<optionNodes.length;i++) {
+						optionNodes[i].checked = "checked";
+					}
+				}
+				
+				document.getElementById("_deselectAll").onclick = function() {
+					var optionNodes = document.getElementsByName("sports2");
+					for(var i=0;i<optionNodes.length;i++) {
+						optionNodes[i].checked = "";
+					}
+				}
+				
+				document.getElementById("_reselectAll").onclick = function() {
+					var optionNodes = document.getElementsByName("sports2");
+					for(var i=0;i<optionNodes.length;i++) {
+						optionNodes[i].checked = (optionNodes[i].checked ? "" : "checked");
+					}
+				}
+			}
+		</script>
+		
+		<style>
+			* {
+				font-size: 30px;
+				text-align: center;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0px;
+				margin: auto;
+			}
+			th,td {
+				border: 2px solid black;
+				padding: 10px;	
+			}
+			a {
+				color: blue;
+				cursor: pointer;
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+  
+	<body>
+		<div>
+			你爱好的运动是？
+			<input id="selectAll" type="checkbox"/>全选/全不选
+			<br/>
+			<input type="checkbox" name="sports1" value="足球"/>足球
+			<input type="checkbox" name="sports1" value="篮球"/>篮球
+			<input type="checkbox" name="sports1" value="羽毛球"/>羽毛球
+			<input type="checkbox" name="sports1" value="乒乓球"/>乒乓球
+		</div>
+		<br/><br/>
+		<div>
+			你爱好的运动是？<br/>
+			<input type="checkbox" name="sports2" value="足球"/>足球
+			<input type="checkbox" name="sports2" value="篮球"/>篮球
+			<input type="checkbox" name="sports2" value="羽毛球"/>羽毛球
+			<input type="checkbox" name="sports2" value="乒乓球"/>乒乓球
+			<br/>
+			<input id="_selectAll" type="button" value="全选"/>
+			<input id="_deselectAll" type="button" value="全不选"/>
+			<input id="_reselectAll" type="button" value="反选"/>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>helloworld.html</title>
+	
+		<meta name="keywords" content="keyword1,keyword2,keyword3">
+		<meta name="description" content="this is my page">
+		<meta name="content-type" content="text/html; charset=GBK">
+    
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementById("submit").onclick = function() {
+					var name = document.getElementsByName("name")[0].value;
+					var email = document.getElementsByName("email")[0].value;
+					var salary = document.getElementsByName("salary")[0].value;
+					
+					var tableNode = document.getElementsByTagName("table")[0];
+					var trNode = tableNode.getElementsByTagName("tr")[1];
+					var newTrNode = trNode.cloneNode(true);
+					var text = new Array(name,email,salary);
+					for(var i=0;i<3;i++) {
+						newTrNode.getElementsByTagName("td")[i].firstChild.nodeValue = text[i];
+					}
+					addOnclickEvent(newTrNode);
+					//tableNode.appendChild(newTrNode);
+					alert(tableNode);
+					alert(newTrNode);
+					alert(trNode);
+					tableNode.insertBefore(newTrNode,trNode);
+				}
+				
+				var trNodes = document.getElementsByTagName("tr");
+				for(var i=1;i<trNodes.length;i++) {
+					addOnclickEvent(trNodes[i]);
+				}
+				
+				function addOnclickEvent(trNode) {
+					var aNodes = trNode.getElementsByTagName("a");
+					aNodes[0].onclick = del;
+				}
+				
+				function del() {
+					var trNode = this.parentNode.parentNode;
+					var text = trNode.getElementsByTagName("td")[0].firstChild.nodeValue;
+					if(confirm("确定要删除[" + text + "]吗？")) {
+						trNode.parentNode.removeChild(trNode);
+					}
+				}
+			}
+		</script>
+		
+		<style>
+			* {
+				font-size: 30px;
+				text-align: center;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0px;
+				margin: auto;
+			}
+			th,td {
+				border: 2px solid black;
+				padding: 10px;	
+			}
+			a {
+				color: blue;
+				cursor: pointer;
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+  
+	<body>
+		添加新员工<br/>
+		name:<input type="text" name="name" id="name"/>
+		email:<input type="text" name="email" id="email"/>
+		salary:<input type="text" name="salary" id="salary"/>
+		<br/><br/>
+		<input type="submit" value="submit" id="submit"/>
+		<br/><br/>
+		<hr/>
+		<br/><br/>
+		<table>
+			<tr>
+				<th>Name</th><th>Email</th><th>Salary</th><th></th>
+			</tr>
+			<tr>
+				<td>Tom</td><td>tom@163.com</td><td>5000</td><td><a>Delete</a></td>
+			</tr>
+			<tr>
+				<td>Bob</td><td>bob@163.com</td><td>10000</td><td><a>Delete</a></td>
+			</tr>
+		</table>
+	</body>
+</html>

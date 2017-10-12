@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.action.extension" value="action,do,,"></constant>
+
+	<package name="helloworld" extends="struts-default">
+		<action name="product-input" class="com.opensymphony.xwork2.ActionSupport"
+			method="execute">
+			<result name="success" type="dispatcher">/WEB-INF/pages/input.jsp</result>
+		</action>
+		
+		<action name="product-save" class="space.snowwolf.struts2.model.Product" method="save">
+			<result name="details">/WEB-INF/pages/details.jsp</result>
+		</action>
+		
+		<action name="TestActionContext" class="space.snowwolf.struts2.action.TestActionContextAction" method="execute">
+			<result name="success">/text-actionContext.jsp</result>
+		</action>
+		
+		<action name="TestAware" class="space.snowwolf.struts2.action.TestAwareAction" method="execute">
+			<result name="success">/login.jsp</result>
+		</action>
+		
+		<action name="LoginUI" class="space.snowwolf.struts2.action.LoginUIAction">
+			<result >/login.jsp</result>
+		</action>
+		
+		<action name="UserLogin" class="space.snowwolf.struts2.action.UserLoginAction" method="login">
+			<result>/welcome.jsp</result>
+		</action>
+		
+		<action name="UserLogout" class="space.snowwolf.struts2.action.UserLoginAction" method="logout">
+			<result>/login.jsp</result>
+		</action>
+		
+		<action name="TestActionSupport">
+			<result>/test.jsp</result>
+		</action>
+	</package>
+
+</struts>

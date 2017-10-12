@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID"
+	version="3.1">
+	
+	<display-name>TestFilter</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+ 	
+ 	<filter>
+ 		<filter-name>HelloFilter</filter-name>
+ 		<filter-class>space.snowwolf.filter.HelloFilter</filter-class>
+ 	</filter>
+ 	<filter-mapping>
+ 		<filter-name>HelloFilter</filter-name>
+ 		<url-pattern>/test.jsp</url-pattern>
+ 	</filter-mapping>
+ 	
+ 	<filter>
+ 		<filter-name>SecondFilter</filter-name>
+ 		<filter-class>space.snowwolf.filter.SecondFilter</filter-class>
+ 	</filter>
+ 	<filter-mapping>
+ 		<filter-name>SecondFilter</filter-name>
+ 		<url-pattern>/test.jsp</url-pattern>
+ 		<dispatcher>REQUEST</dispatcher>
+ 		<dispatcher>FORWARD</dispatcher>
+ 	</filter-mapping>
+ 	
+ 	<filter>
+ 		<filter-name>UsernameFilter</filter-name>
+ 		<filter-class>space.snowwolf.filter.UsernameFilter</filter-class>
+ 		<init-param>
+ 			<param-name>username</param-name>
+ 			<param-value>Tom</param-value>
+ 		</init-param>
+ 	</filter>
+ 	<filter-mapping>
+ 		<filter-name>UsernameFilter</filter-name>
+ 		<url-pattern>/hello.jsp</url-pattern>
+ 	</filter-mapping>
+ 	
+ 	<filter>
+ 		<filter-name>PasswordFilter</filter-name>
+ 		<filter-class>space.snowwolf.filter.PasswordFilter</filter-class>
+ 		<init-param>
+ 			<param-name>password</param-name>
+ 			<param-value>1234</param-value>
+ 		</init-param>
+ 	</filter>
+ 	<filter-mapping>
+ 		<filter-name>PasswordFilter</filter-name>
+ 		<url-pattern>/hello.jsp</url-pattern>
+ 	</filter-mapping>
+ 	
+ 	<filter>
+ 		<filter-name>NoCacheFilter</filter-name>
+ 		<filter-class>space.snowwolf.filter.NoCacheFilter</filter-class>
+ 	</filter>
+ 	<filter-mapping>
+ 		<filter-name>NoCacheFilter</filter-name>
+ 		<url-pattern>/cache/*</url-pattern>
+ 	</filter-mapping>
+ 	
+ 	<filter>
+ 		<filter-name>CharsetEncodingFilter</filter-name>
+ 		<filter-class>space.snowwolf.filter.CharsetEncodingFilter</filter-class>
+ 		<init-param>
+ 			<param-name>encoding</param-name>
+ 			<param-value>UTF-8</param-value>
+ 		</init-param>
+ 	</filter>
+ 	<filter-mapping>
+ 		<filter-name>CharsetEncodingFilter</filter-name>
+ 		<url-pattern>*</url-pattern>
+ 	</filter-mapping>
+ 	
+ 	<context-param>
+ 		<param-name>userSessionKey</param-name>
+ 		<param-value>USERSESSIONKEY</param-value>
+ 	</context-param>
+ 	
+ 	<filter>
+ 		<filter-name>LoginFilter</filter-name>
+ 		<filter-class>space.snowwolf.filter.LoginFilter</filter-class>
+ 		<init-param>
+ 			<param-name>redirectPage</param-name>
+ 			<param-value>/login/login.jsp</param-value>
+ 		</init-param>
+ 		<init-param>
+ 			<param-name>uncheckedUrls</param-name>
+ 			<param-value>/login/list.jsp,/login/a.jsp,/login/login.jsp,/login/_login.jsp</param-value>
+ 		</init-param>
+ 	</filter>
+ 	<filter-mapping>
+ 		<filter-name>LoginFilter</filter-name>
+ 		<url-pattern>*</url-pattern>
+ 	</filter-mapping>
+</web-app>
